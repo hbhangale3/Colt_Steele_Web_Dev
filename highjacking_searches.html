@@ -30,6 +30,47 @@
         <input type="text" name="search_query">
         <button>search youtube</button>
     </form>
+
+
+    <h2>Radio Buttons and Checkboxes</h2>
+
+    <form action="/nowhere">
+        <h3> Select your fav meals</h3>
+        <!-- output -->
+        <!-- file:///nowhere?samosa=on&Tikki=on -->
+        <label for="samosa"> Samosa</label>
+        <input type="checkbox" name="samosa" id="samosa">
+        <label for="Tikki"> Tikki</label>
+        <input type="checkbox" name="Tikki" id="Tikki">
+        <label for="Parathe"> Parathe</label>
+        <input type="checkbox" name="Parathe" id="Parathe">
+        <label for="Dabeli"> Dabeli</label>
+        <input type="checkbox" name="Dabeli" id="Dabeli">
+        <!-- result: file:///nowhere?samosa=on&Parathe=on&drink=maza -->
+        <!-- you can see for checkboxes we have received data as on while for radio buttons we have received the value associated with the radio button we have selected -->
+        <h3>Select your complementary drink</h3>
+        <label for="coke"> Coke</label>
+        <input type="radio" name="drink" id="coke" value="coke">
+        <label for="fanta"> fanta</label>
+        <input type="radio" name="drink" id="fanta" value="fanta">
+        <label for="sprite"> sprite</label>
+        <input type="radio" name="drink" id="sprite" value="sprite">
+        <label for="maza">maza</label>
+        <input type="radio" name="drink" id="maza" value="maza">
+        <br>
+        <label for="drink-quan"> Select the number of meals required</label>
+        <select name="quantity" id="drink-quan">
+            <option value="" selected>--Please select the Quantity--</option>
+            <option value="one">1</option>
+            <option value="two">2</option>
+            <option value="three">3</option>
+            <option value="four">4</option>
+
+        </select>
+        <br>
+        <button>submit</button>
+        <!-- final output: file:///nowhere?samosa=on&Tikki=on&Dabeli=on&drink=maza&quantity=two -->
+    </form>
 </body>
 
 </html>
