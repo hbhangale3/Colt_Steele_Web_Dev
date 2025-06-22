@@ -67,9 +67,31 @@
             <option value="four">4</option>
 
         </select>
+        <!-- final output: file:///nowhere?samosa=on&Tikki=on&Dabeli=on&drink=maza&quantity=two -->
+        <br>
+        <label for="spice"> select the spice level</label>
+        <input type="range" name="spice" id="spice" min="0" max="100" step="10" value="50">
+        <br>
+        <label for="requests"> Any Special requests</label>
+        <br>
+        <textarea id="requests" name="requests" rows="10" cols="40">any special requests?</textarea>
         <br>
         <button>submit</button>
-        <!-- final output: file:///nowhere?samosa=on&Tikki=on&Dabeli=on&drink=maza&quantity=two -->
+        <!-- file:///nowhere?samosa=on&Parathe=on&Dabeli=on&drink=maza&quantity=two&spice=70&requests=None+as+of+now -->
+    </form>
+    <form>
+        <h2>Checking Form validations</h2>
+        <label for="username"> Enter Username</label>
+        <br>
+        <input type="text" name="username" id="username" minlength="5" maxlength="26" required>
+        <br>
+        <label for="email"> Enter email</label>
+        <input type="email" name="email" id="email" required>
+        <br>
+        <label for="url"> Entern your website</label>
+        <input type="url" name="url" id="url" required>
+        <br>
+        <button> submit</button>
     </form>
 </body>
 
