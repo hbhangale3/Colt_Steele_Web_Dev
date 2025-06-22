@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All in one search</title>
+</head>
+
+<body>
+    <!-- In all the below cases, the name attribute is populated with the same name as the search engine is expecting -->
+    <h2>Search Reddit</h2>
+    <!-- https://www.reddit.com/search/?q=dogs -->
+    <form action="https://www.reddit.com/search/">
+
+        <input type="text" name="q">
+        <button>Search reddit</button>
+    </form>
+
+    <h2>Search google</h2>
+    <!-- https://www.google.com/search?q=dogs -->
+    <form action="https://www.google.com/search">
+        <input type="text" name="q">
+        <button>search google</button>
+    </form>
+
+    <h2>Search youtube</h2>
+    <!-- https://www.youtube.com/results?search_query=dogs -->
+    <form action="https://www.youtube.com/results">
+        <input type="text" name="search_query">
+        <button>search youtube</button>
+    </form>
+</body>
+
+</html>
