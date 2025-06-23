@@ -1,14 +1,19 @@
 h3 {
     color: #ce5df0;
     background-color: rgb(56, 172, 200);
+    text-align: center;
+    letter-spacing: 10px;
 }
 
 button {
     color: magenta;
     background-color: cyan;
+    text-decoration: blue underline;
 }
 
 p {
     color: olive;
     background: orange;
+    text-decoration: white underline wavy;
+    line-height: 2;
 }
