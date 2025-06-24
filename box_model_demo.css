@@ -1,4 +1,43 @@
 div {
     width: 200px;
     height: 200px;
+    background-color: coral;
+}
+
+#one {
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+#two {
+    /* you can also set all properties in one go as well */
+    border: 4px black dashed;
+    /* I can also individually set properties for just one side of a border as well */
+    border-left-style: ridge;
+}
+
+#three {
+    /* setting rounded curved edges */
+    border: none;
+}
+
+#three:hover {
+    border: 5px solid black;
+    border-radius: 20px;
+}
+
+#fourth {
+    width: 250px;
+    text-align: center;
+    border: 5px solid black;
+}
+
+img {
+    width 200px;
+    height: 200px;
+    border: 5px solid black;
+    border-radius: 50%;
+
 }
