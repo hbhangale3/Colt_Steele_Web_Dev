@@ -30,7 +30,6 @@ div {
 }
 
 #sticky #middle {
-    display: block;
     position: -webkit-sticky;
     position: sticky;
     top: 50px;

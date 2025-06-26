@@ -1,0 +1,42 @@
+.demo {
+    width: 200px;
+    height: 200px;
+    border: 5px solid black;
+    transition: 2s;
+    background-color: yellow;
+}
+
+.demo:hover {
+    border-radius: 50%;
+    background-color: magenta;
+}
+
+
+#demo2 div {
+    width: 100px;
+    height: 100px;
+    border: 5px solid black;
+    margin: 20px 0 10px 0;
+    background-color: aqua;
+    transition: margin-left 3s;
+}
+
+#demo2:hover div {
+    margin-left: 500px;
+}
+
+#demo2 div:nth-last-of-type(1) {
+    transition-timing-function: ease-in;
+}
+
+#demo2 div:nth-last-of-type(2) {
+    transition-timing-function: ease-out;
+}
+
+#demo2 div:nth-last-of-type(3) {
+    transition-timing-function: steps(6, end);
+}
+
+#demo2 div:nth-last-of-type(4) {
+    transition-timing-function: ease-out;
+}
