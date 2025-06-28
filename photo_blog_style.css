@@ -1,0 +1,15 @@
+img {
+    /* the reason we are using % is that as the window size increases or decreases
+    the photos also scale up and down respectively thus maintaining the structure */
+    width: 30%;
+    margin: 1.66%;
+}
+
+nav {
+    border-bottom: 2px solid #1f1f1f;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.5em;
+    width: 40%;
+    margin-left: 1.6%;
+    padding: 1.0em 0;
+}
