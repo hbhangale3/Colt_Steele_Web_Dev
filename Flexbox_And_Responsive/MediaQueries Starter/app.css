@@ -1,20 +1,37 @@
-body {
-    font-family: 'Open Sans', sans-serif;
-}
+ body {
+     font-family: 'Open Sans', sans-serif;
+ }
 
-h1 {
-    font-size: 6em;
-    text-align: center;
-}
-nav {
-    font-size: 1.5em;
-}
+ h1 {
+     font-size: 6em;
+     text-align: center;
+ }
 
-ul,li {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
+ nav {
+     font-size: 1.5em;
+ }
 
+ ul,
+ li {
+     display: inline;
+     margin: 0;
+     padding: 0;
+ }
 
+ /* @media (width:1000px) {
+     h1 {
+         color: red;
+     }
+ } */
 
+ @media(min-width:800px) {
+     h1 {
+         color: aqua;
+     }
+ }
+
+ @media(max-width:799px) {
+     h1 {
+         color: brown;
+     }
+ }

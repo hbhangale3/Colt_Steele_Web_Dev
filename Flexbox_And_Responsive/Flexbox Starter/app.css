@@ -9,7 +9,7 @@ h1 {
 #container {
     background-color: #003049;
     width: 90%;
-    height: 500px;
+    /* height: 500px; */
     margin: 0 auto;
     border: 5px solid #003049;
     display: flex;
@@ -19,15 +19,15 @@ h1 {
     align-items: flex-start;
     /* align-content: space-between; */
 
-
 }
 
 #container div {
-
     width: 200px;
     height: 200px;
+    flex-basis: 100px;
 }
 
 #container div:nth-of-type(3) {
-    align-self: center;
+    /* align-self: center; */
+    flex-grow: 1;
 }
