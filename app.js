@@ -1,6 +1,6 @@
 console.log("Hello from my first script");
 
-let userInput = prompt("Enter your prompt");
+let userInput = prompt("Enter your number");
 
 // if(parseInt(userInput)%2===0){
 //     console.log("even");
@@ -15,3 +15,9 @@ if(userInput=="stop"){
 }else{
     console.log("purple");
 }
+
+for(let i=0;i<6;i++){
+    console.log("Da ba dee da ba daa");
+}
+    
+
