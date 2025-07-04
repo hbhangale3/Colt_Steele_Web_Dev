@@ -1,31 +1,15 @@
-console.log("Hello from my first script");
+console.log("Hello from my first Guessing game");
 
-// let userInput = prompt("Enter your number");
-
-// if(parseInt(userInput)%2===0){
-//     console.log("even");
-// }
-
-// if(userInput=="stop"){
-//     console.log("red");
-// }else if(userInput=="slow"){
-//     console.log("yellow");
-// }else if(userInput=="go"){
-//     console.log("green");
-// }else{
-//     console.log("purple");
-// }
-
-// for(let i=0;i<6;i++){
-//     console.log("Da ba dee da ba daa");
-// }
-    
-
-const people = ["Scooby", "Velma", "Daphne", "Shaggy", "Fred"]; //DONT TOUCH THIS LINE!
-
-// WRITE YOUR LOOP BELOW THIS LINE:
-
-for(let i=0;i<people.length;i++){
-    let string = people[i].toUpperCase();
-    console.log(string);
+let range = Number(prompt("Please enter the range"));
+let target = Math.floor(Math.random()*range);
+while(true){
+    let num = Number(prompt("Guess the number"));
+    if(num<target){
+        alert("too low");
+    }else if(num>target){
+        alert("too high");
+    }else if(num===target){
+        console.log(`You guessed it right, the correct number is ${target}`);
+        break;
+    }
 }
