@@ -17,3 +17,20 @@ function rollDie(){
 
 //we are not passing rollDie() but rollDie as otherwise it would first get executed and then pass the random number generated, rather than the function itself.
 callTwice(rollDie);
+
+//higher order function that returns a function
+
+function mystryFunction(){
+    let rand = Math.random();
+    if(rand>0.5){
+        return function(){
+            console.log('Congratulations, you won a million dollars');
+            console.log('Share your bank details immediately.')
+        }
+    }else{
+        return function(){
+            console.log('Your computer has been infected by a virus');
+            console.log('Do not close the window');
+        }
+    }
+}
