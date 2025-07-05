@@ -75,3 +75,16 @@ const doubles = arr2.map(function(el){
     return el*2;
 })
 
+//Arrow function
+const add = (x,y) =>{
+    return x+y;
+}
+
+const double = (x) =>{
+    return x*2;
+}
+
+const rollDies = () =>{
+    return Math.floor(Math.random*6)+1;
+}
+
