@@ -46,3 +46,16 @@ const myMath = {
         return num**3;
     }
 }
+
+//understanding the this keyword.
+const person = {
+    first: 'shivangi',
+    last: 'goyal',
+    fullname: function(){
+        console.log(this);
+        return `${this.first} & ${this.last}`
+    }
+}
+
+const person2 = person.fullname;
+
