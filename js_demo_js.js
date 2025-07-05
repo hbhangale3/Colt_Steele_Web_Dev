@@ -85,6 +85,18 @@ const double = (x) =>{
 }
 
 const rollDies = () =>{
-    return Math.floor(Math.random*6)+1;
+    return Math.floor(Math.random()*6)+1;
 }
+
+//setTimeout
+
+console.log("Hello...")
+setTimeout(()=>{
+    console.log("...Are you still there?")
+},3000);
+
+//setInterval
+const id=setInterval(()=>{
+    console.log(Math.random())
+}, 2000);
 
