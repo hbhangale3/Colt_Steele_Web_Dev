@@ -59,3 +59,19 @@ const person = {
 
 const person2 = person.fullname;
 
+//forEach
+const arr = [1,2,3,4,5,6,7,8,9];
+
+//the standard pattern is to write the function definition inline
+arr.forEach(function(el){
+    console.log(el*el);
+})
+
+
+//Map
+const arr2 = [1,2,3,4,5,6,7,8,9];
+
+const doubles = arr2.map(function(el){
+    return el*2;
+})
+
