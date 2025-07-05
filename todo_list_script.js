@@ -43,9 +43,7 @@ while(true){
         }else{
             console.log('invalid task index');
             continue;
-        }
-        
-        
+        } 
     }
     //quit
     else if(userInput==='quit'){
