@@ -90,13 +90,32 @@ const rollDies = () =>{
 
 //setTimeout
 
-console.log("Hello...")
-setTimeout(()=>{
-    console.log("...Are you still there?")
-},3000);
+// console.log("Hello...")
+// setTimeout(()=>{
+//     console.log("...Are you still there?")
+// },3000);
 
-//setInterval
-const id=setInterval(()=>{
-    console.log(Math.random())
-}, 2000);
+// //setInterval
+// const id=setInterval(()=>{
+//     console.log(Math.random())
+// }, 2000);
 
+
+//filter
+
+const odd = arr2.filter(n=>{
+    return n%2===1; //if n%2=1 then add n into the new array.
+})
+
+
+//some & every
+
+const exams=[80,90,72,85,99,79,91,82,83,77];
+
+let results1 = exams.every(scores=>{
+    return scores>=75;
+})
+
+let result2 = exams.some(scores=>{
+    return scores>=75;
+})
