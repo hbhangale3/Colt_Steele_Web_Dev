@@ -119,3 +119,23 @@ let results1 = exams.every(scores=>{
 let result2 = exams.some(scores=>{
     return scores>=75;
 })
+
+//reduce
+
+let maxMarks = exams.reduce((max,curr)=>{
+    if(curr>max){
+        return curr;
+    }else
+    return max;
+})
+
+let sumMarks = exams.reduce((total,curr)=>{
+    return total+curr; 
+})
+
+let minMarks = exams.reduce((min,curr)=>{
+    if(curr<min){
+        return curr;
+    }else
+    return min;
+})
