@@ -139,3 +139,14 @@ let minMarks = exams.reduce((min,curr)=>{
     }else
     return min;
 })
+
+
+//default params
+function rollDie2(numSide=6){
+    return Math.floor(Math.random()*numSide);
+    //if we dont pass any number, it will assume 6 as argument.
+}
+
+function greet(person,msg='Hey There'){
+    console.log(`${msg}, ${person}`);
+}
