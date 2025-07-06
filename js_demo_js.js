@@ -150,3 +150,9 @@ function rollDie2(numSide=6){
 function greet(person,msg='Hey There'){
     console.log(`${msg}, ${person}`);
 }
+
+//rest
+
+function customSum(...nums){
+    return nums.reduce((total,el)=> total+el);
+}
