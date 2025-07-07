@@ -15,6 +15,7 @@ function makeRandColor(){
     return `rgb(${r},${g},${b})`
 }
 
+//event object and keyboard event object
 const btn2 = document.querySelector('#v2').addEventListener('click', function(e){
     console.log(e);
 })
@@ -23,6 +24,8 @@ const ip = document.querySelector('input').addEventListener('keydown', function(
     console.log(e);
 })
 
+
+//prevent default or change normal form behavior
 const form = document.querySelector('#shelterForm');
 const input = document.querySelector('#ip');
 
@@ -37,3 +40,18 @@ form.addEventListener('submit', function(e){
     ul.append(li);
     console.log('submitted!!');
 })
+
+//change and input type
+
+const ip2 = document.querySelector('#ip2');
+
+ip2.addEventListener('change', function(e){
+    console.log('You left the input.');
+})
+
+const ip3 = document.querySelector('#ip3');
+const h2 = document.querySelector('#h2');
+ip3.addEventListener('input', function(e){
+    h2.innerText=`Hello, welcome ${ip3.value}`;
+})
+
