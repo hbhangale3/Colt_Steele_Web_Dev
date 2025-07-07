@@ -24,8 +24,16 @@ const ip = document.querySelector('input').addEventListener('keydown', function(
 })
 
 const form = document.querySelector('#shelterForm');
+const input = document.querySelector('#ip');
+
+const ul = document.querySelector('#op');
+
 form.addEventListener('submit', function(e){
-    console.log('submitted');
+    //console.log('submitted');
     e.preventDefault();
+    const val = input.value;
+    const li = document.createElement('li');
+    li.innerText=val;
+    ul.append(li);
     console.log('submitted!!');
 })
