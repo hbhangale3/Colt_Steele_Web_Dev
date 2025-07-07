@@ -22,3 +22,10 @@ const btn2 = document.querySelector('#v2').addEventListener('click', function(e)
 const ip = document.querySelector('input').addEventListener('keydown', function(e){
     console.log(e);
 })
+
+const form = document.querySelector('#shelterForm');
+form.addEventListener('submit', function(e){
+    console.log('submitted');
+    e.preventDefault();
+    console.log('submitted!!');
+})
