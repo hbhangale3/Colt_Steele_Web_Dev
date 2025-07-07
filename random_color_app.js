@@ -14,3 +14,11 @@ function makeRandColor(){
     
     return `rgb(${r},${g},${b})`
 }
+
+const btn2 = document.querySelector('#v2').addEventListener('click', function(e){
+    console.log(e);
+})
+
+const ip = document.querySelector('input').addEventListener('keydown', function(e){
+    console.log(e);
+})
