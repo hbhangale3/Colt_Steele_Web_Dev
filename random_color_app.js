@@ -41,6 +41,12 @@ form.addEventListener('submit', function(e){
     console.log('submitted!!');
 })
 
+ul.addEventListener('click', function(e){
+    if(e.target.nodeName==='LI'){
+        e.target.remove();
+    }
+})
+
 //change and input type
 
 const ip2 = document.querySelector('#ip2');
