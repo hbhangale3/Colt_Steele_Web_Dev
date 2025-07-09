@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Callback Hell Example</title>
+</head>
+
+<body>
+    <h1>Open the Console to See Output</h1>
+    <script>
+        console.log("Start App");
+
+        function loginUser(username, callback) {
+            setTimeout(() => {
+                console.log(`User ${username} logged in`);
+                callback(username);
+            }, 10);
+        }
+
+        function fetchUserData(username, callback) {
+            setTimeout(() => {
+                const data = { name: username, role: "admin" };
+                console.log("Fetched user data");
+                callback(data);
+            }, 10);
+        }
+
+        function authorizeUser(data, callback) {
+            setTimeout(() => {
+                if (data.role === "admin") {
+                    console.log("User authorized");
+                    callback(true);
+                } else {
+                    console.log("User not authorized");
+                    callback(false);
+                }
+            }, 10);
+        }
+
+        function displayDashboard(isAuthorized) {
+            setTimeout(() => {
+                if (isAuthorized) {
+                    console.log("Displaying dashboard");
+                } else {
+                    console.log("Access Denied");
+                }
+            }, 10);
+        }
+
+        // Callback Hell Begins!
+        loginUser("harsh", function (username) {
+            fetchUserData(username, function (userData) {
+                authorizeUser(userData, function (isAuth) {
+                    displayDashboard(isAuth);
+                });
+            });
+        });
+
+        console.log("End App");
+    </script>
+</body>
+
+</html>
