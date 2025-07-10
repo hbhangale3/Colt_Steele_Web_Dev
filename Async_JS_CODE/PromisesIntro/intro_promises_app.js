@@ -51,3 +51,18 @@ delayedColorChange('violet',1000)
 .then(()=>{
     return delayedColorChange('red',1000)
 })
+
+async function rainbow(){
+    await delayedColorChange('red', 1000);
+    await delayedColorChange('green', 1000);
+    await delayedColorChange('orange', 1000);
+    await delayedColorChange('blue', 1000);
+    await delayedColorChange('yellow', 1000);
+    await delayedColorChange('cyan', 1000);
+}
+
+rainbow().then(()=>{
+    console.log('end of rainbow');
+}).catch(()=>{
+    console.log('error');
+})
