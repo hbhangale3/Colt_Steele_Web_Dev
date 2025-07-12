@@ -73,3 +73,36 @@ class Color{
 }
 
 const col3 = new Color(190,145,253);
+
+class Pet{
+    constructor(age,name){
+        console.log("inside pet constructor");
+        this.age=age;
+        this.name=name;
+    }
+
+    eat(){
+        return `${this.name} is eating`;
+    }
+}
+
+class Cat extends Pet{
+
+    constructor(name,age,lives=9){
+        console.log("Inside Cat Constructor");
+        super(name,age);
+        this.lives=lives
+    }
+    eat(){
+        return "This eat belongs to cat class"
+    }
+    meow(){
+        return 'MEOWW';
+    }
+}
+
+class Dog extends Pet{
+    barks(){
+        return 'WOOF';
+    }
+}
