@@ -6,6 +6,11 @@ const app = express();
 //     res.send("We have received your request, thanks for reaching out to us.");
 // })
 
+
+app.get("/r/:subreddit", (req,res)=>{
+    const {subreddit}= req.params;
+    res.send(`<h1> Welcome to the ${subreddit} page</h1>`);
+})
 app.get("/cats", (req,res)=>{
     console.log("Meow!!!!")
     res.send("Meow!!!")
