@@ -24,6 +24,17 @@ app.get("/", (req,res)=>{
     console.log("Welcome to the home page!")
     res.send("Welcome to the home page!")
 })
+app.get("/search", (req,res)=>{
+    console.log(req.query);
+    const {q} = req.query;
+
+    if(!q){
+        res.send("Nothing to return if nothing searched");
+    }else {
+        res.send(`<h1> you have searched for: ${q}</h1>`);
+    }
+    
+})
 
 app.get(/(.*)/,(req,res)=>{
     console.log("I dont know what you are talking about")
