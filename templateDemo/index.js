@@ -11,8 +11,19 @@ app.get("/",(req,res)=>{
     res.render("about");
 })
 
+app.get("/r/:subreddit",(req,res)=>{
+    const {subreddit} = req.params;
+    res.render("subreddit", {subreddit});
+})
+
+app.get("/cats", (req,res)=>{
+    const cats = ['blue','rocket','monty','stephanie'];
+    res.render('cats',{cats});
+})
+
 app.get("/random", (req,res)=>{
-    res.render("random");
+    const num = Math.floor(Math.random()*10+1);
+    res.render("random",{rand:num});
 })
 app.listen(3000,()=>{
     console.log("Listening for request");
