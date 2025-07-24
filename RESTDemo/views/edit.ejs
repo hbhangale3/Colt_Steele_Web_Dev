@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing Existing comment</title>
+</head>
+
+<body>
+    <h1>Edit the old comment below</h1>
+    <form method='post' action="/comments/<%= oldComment.id %>/?_method=patch">
+        <label for="oldCom">Old Comment</label>
+        <textarea name="oldCom" id="oldCom" cols="30" rows="10"> <%= oldComment.comment%></textarea>
+        <button>save</button>
+    </form>
+</body>
+
+</html>
