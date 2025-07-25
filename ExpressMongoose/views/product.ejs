@@ -11,7 +11,9 @@
     <h1>Products List</h1>
     <ul>
         <%for(let product of products) {%>
-            <li>Name: <%= product.name %> - Price: <%=product.price%>
+            <li>Name: <a href="/product/<%=product._id %>">
+                    <%= product.name %>
+                </a>
             </li>
             <% } %>
     </ul>
