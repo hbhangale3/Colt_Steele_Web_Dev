@@ -21,8 +21,10 @@ app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 
 
-app.get('/dog',(req,res)=>{
-    res.send('WOOF!!');
+app.get('/product', async (req,res)=>{
+    const products = await Product.find({});
+    console.log("Products will be displayed on the product page");
+    res.render('product',{products})
 })
 
 app.listen(3000,()=>{
