@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 
 //importing the model
@@ -21,7 +22,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
 app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}))
-
+app.use(methodOverride('_method'))
 //list all products
 app.get('/product', async (req,res)=>{
     const products = await Product.find({});
@@ -40,14 +41,32 @@ app.post('/product', async (req,res)=>{
     res.redirect('/product')
 })
 
+//Updating an old product
+
+app.get('/product/:id/edit', async(req,res)=>{
+    const {id} = req.params;
+    const findProduct = await Product.findById(id);
+    res.render('edit',{findProduct});
+})
+
 //details of a particular product
 app.get('/product/:id', async(req,res)=>{
     const {id} = req.params;
     const findProduct = await Product.findById(id);
-    res.render('show',{findProduct});
+    res.render('show',{findProduct,id});
 })
 
-
+//updating a current product
+app.put('/product/:id', async(req,res)=>{
+    const {id} = req.params;
+    const findProduct = await Product.findById(id);
+    findProduct.name=req.body.name;
+    findProduct.price=req.body.price;
+    findProduct.category=req.body.category;
+    await findProduct.save();
+    console.log('updating information')
+    res.redirect('/product')
+})
 
 app.listen(3000,()=>{
     console.log("App Listening on port 3000");
