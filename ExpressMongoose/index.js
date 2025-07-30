@@ -4,7 +4,8 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-
+const morgan = require('morgan');
+const AppError = require('./AppError');
 
 //importing the model
 const Product = require('./model/product');
@@ -23,6 +24,15 @@ app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
+app.use(morgan('tiny'));
+
+const verify = (req,res,next)=>{
+    const {password} = req.query;
+    if(password==='chickennuggets'){
+      return next();
+    }
+   return next(new Error('Please provide correct password'));
+}
 //list all products
 app.get('/product', async (req,res)=>{
     const products = await Product.find({});
@@ -34,32 +44,46 @@ app.get('/product/new', (req,res)=>{
     res.render('new');
 })
 
-app.post('/product', async (req,res)=>{
-    const newProd = new Product(req.body);
+app.post('/product', async (req,res,next)=>{
+    try{
+        const newProd = new Product(req.body);
     await newProd.save();
     console.log(newProd);
     res.redirect('/product')
+    }catch(e){
+        next(e)
+    }
+    
 })
 
 //Updating an old product
 
-app.get('/product/:id/edit', async(req,res)=>{
+app.get('/product/:id/edit', verify, async(req,res,next)=>{
     const {id} = req.params;
     const findProduct = await Product.findById(id);
+    if(!findProduct){
+        return next(new AppError('Product Not Found', 404));
+    }
     res.render('edit',{findProduct});
 })
 
 //details of a particular product
-app.get('/product/:id', async(req,res)=>{
+app.get('/product/:id', async(req,res,next)=>{
     const {id} = req.params;
     const findProduct = await Product.findById(id);
+    if(!findProduct){
+        return next(new AppError('Product Not Found', 404));
+    }
     res.render('show',{findProduct,id});
 })
 
 //updating a current product
-app.put('/product/:id', async(req,res)=>{
+app.put('/product/:id', async(req,res,next)=>{
     const {id} = req.params;
     const findProduct = await Product.findById(id);
+    if(!findProduct){
+        return next(new AppError('Product Not Found', 404));
+    }
     findProduct.name=req.body.name;
     findProduct.price=req.body.price;
     findProduct.category=req.body.category;
@@ -73,6 +97,17 @@ app.delete('/product/:id', async(req,res)=>{
     const {id} = req.params;
     await Product.findByIdAndDelete(id);
     res.redirect('/product')
+})
+
+//dummy error
+
+app.get('/error', (req,res)=>{
+    chicken.fly();
+})
+
+app.use((err,req,res,next)=>{
+    const{status=500, message="Something went wrong"} = err;
+    res.status(status).send(message);
 })
 
 app.listen(3000,()=>{
