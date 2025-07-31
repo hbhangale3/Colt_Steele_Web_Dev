@@ -83,6 +83,13 @@ app.post('/farms/:farmId/products', async(req,res)=>{
     res.redirect(`/farms/${farmId}`);
 
 })
+//deleting a farm and its products
+
+app.delete('/farms/:farmId', async (req,res)=>{
+    const farm = await Farm.findByIdAndDelete(req.params.farmId);
+    res.redirect('/farms');
+})
+
 
 //Products
 //list all products

@@ -32,6 +32,9 @@
     </ul>
     <a href="/farms">Go back to Farms list</a>
     <a href="/farms/<%=farm._id%>/products/new"> Add new product</a>
+    <form action="/farms/<%=farm._id%>/?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
 </body>
 
 </html>
