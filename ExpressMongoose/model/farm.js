@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+
+const farmSchema = mongoose.Schema({
+    name:{
+        type: String,
+        require: [true, 'Farm must have a name']
+    },
+    city: {
+        type: String
+    },
+    email: {
+        type: String,
+        required: [true,'Email Required']
+    },
+    products:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product'
+        }
+    ]
+});
+
+const Farm = mongoose.model('Farm', farmSchema);
+
+module.exports = Farm;

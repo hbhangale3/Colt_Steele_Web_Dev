@@ -13,6 +13,10 @@ const { default: mongoose } = require("mongoose")
     category:{
         type: String,
         enum:['fruit','vegetable','dairy']
+    },
+    farm:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Farm'
     }
 
  })

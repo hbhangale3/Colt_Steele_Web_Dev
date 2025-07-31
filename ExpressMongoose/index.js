@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const AppError = require('./AppError');
+const Farm = require('./model/farm');
 
 //importing the model
 const Product = require('./model/product');
@@ -33,6 +34,55 @@ const verify = (req,res,next)=>{
     }
    return next(new Error('Please provide correct password'));
 }
+
+
+
+//Farms
+
+//display all farms
+app.get('/farms', async (req,res)=>{
+    const farms = await Farm.find({});
+    res.render('farms/home', {farms})
+})
+
+//adding new farm
+app.get('/farms/new', (req,res)=>{
+    res.render('farms/new');
+})
+
+//
+
+app.post('/farms', async (req,res)=>{
+    const farm = new Farm(req.body);
+    await farm.save();
+    res.redirect('/farms');
+})
+
+//show page
+app.get('/farms/:id', async (req,res)=>{
+    const farm = await Farm.findById(req.params.id);
+    res.render('farms/show', {farm});
+})
+
+//adding a new product under a farm
+app.get('/farms/:farmId/products/new', (req,res)=>{
+    const {farmId} = req.params;
+    res.render('farms/farmProduct', {farmId});
+})
+
+app.post('/farms/:farmId/products', async(req,res)=>{
+    const {name, price, category} = req.body;
+    const product = new Product({name, price, category});
+    const {farmId} = req.params;
+    const farm = await Farm.findById(farmId);
+    farm.products.push(product);
+    product.farm = farm; 
+    await farm.save()
+    await product.save();
+
+})
+
+//Products
 //list all products
 app.get('/product', async (req,res)=>{
     const products = await Product.find({});
@@ -47,6 +97,7 @@ app.get('/product/new', (req,res)=>{
 app.post('/product', async (req,res,next)=>{
     try{
         const newProd = new Product(req.body);
+        
     await newProd.save();
     console.log(newProd);
     res.redirect('/product')
