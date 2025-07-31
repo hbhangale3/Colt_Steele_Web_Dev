@@ -20,7 +20,16 @@
         <li>Email: <%= farm.email %>
         </li>
     </ul>
-
+    <h2>Products</h2>
+    <ul>
+        <% for(let product of farm.products) {%>
+            <li>
+                <a href="/product/<%=product._id%>">
+                    <%=product.name%>
+                </a>
+            </li>
+            <% } %>
+    </ul>
     <a href="/farms">Go back to Farms list</a>
     <a href="/farms/<%=farm._id%>/products/new"> Add new product</a>
 </body>
