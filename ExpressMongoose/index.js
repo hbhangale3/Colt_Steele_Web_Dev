@@ -7,6 +7,11 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const AppError = require('./AppError');
 const Farm = require('./model/farm');
+const session = require('express-session');
+const flash = require('express-flash');
+
+
+
 
 //importing the model
 const Product = require('./model/product');
@@ -26,6 +31,14 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
 app.use(morgan('tiny'));
+app.use(session({
+    secret: 'thisisnotagreatsecret',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(flash());
+
 
 const verify = (req,res,next)=>{
     const {password} = req.query;
@@ -42,7 +55,7 @@ const verify = (req,res,next)=>{
 //display all farms
 app.get('/farms', async (req,res)=>{
     const farms = await Farm.find({});
-    res.render('farms/home', {farms})
+    res.render('farms/home', {farms, messages: req.flash('success')})
 })
 
 //adding new farm
@@ -55,6 +68,7 @@ app.get('/farms/new', (req,res)=>{
 app.post('/farms', async (req,res)=>{
     const farm = new Farm(req.body);
     await farm.save();
+    req.flash('success','Successfully made a new farm');
     res.redirect('/farms');
 })
 
@@ -80,6 +94,7 @@ app.post('/farms/:farmId/products', async(req,res)=>{
     product.farm = farm; 
     await farm.save()
     await product.save();
+
     res.redirect(`/farms/${farmId}`);
 
 })
