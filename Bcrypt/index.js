@@ -55,10 +55,9 @@ app.get('/register',(req,res)=>{
 
 //saving user details to db
 app.post('/register', async (req,res)=>{
-    const hashedPw = await hashpassword(req.body.password);
     const user = new User({
         username: req.body.username,
-        password: hashedPw
+        password: req.body.password
     })
 
     await user.save();
@@ -75,11 +74,9 @@ app.get('/login',(req,res)=>{
 app.post('/login', async(req,res)=>{
 
     const {username, password} = req.body;
-    const user = await User.findOne({username});
-    const hashedPw = user.password
-    const result = await login(password,hashedPw);
+    const result = await User.findAndValidate(username,password)
     if(result){
-        req.session.user_id=user._id;
+        req.session.user_id=result._id;
         res.send('Login Successful!!');
     }else{
         res.send('Login Failed, please try again!');
